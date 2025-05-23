@@ -25,4 +25,4 @@ ENV VITE_API_URL=${VITE_API_URL}
 ENV VITE_API_CONTRACT_LINK=${VITE_API_CONTRACT_LINK}
 
 # Iniciar em modo preview
-CMD ["npm", "run", "preview", "--host"]
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
