@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  v8contract:
+    image: impacteai/v8contract:latest
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
+      - VITE_API_CONTRACT_LINK=${VITE_API_CONTRACT_LINK}
+      - TZ=America/Sao_Paulo
+      - HOSTNAME=0.0.0.0
+    networks:
+      - network_swarm_public
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.v8contract.rule=Host(`fgts.mazam.com.br`)"
+        - "traefik.http.routers.v8contract.entrypoints=websecure"
+        - "traefik.http.routers.v8contract.tls.certresolver=letsencryptresolver"
+        - "traefik.http.services.v8contract.loadbalancer.server.port=4173"
+
+networks:
+  network_swarm_public:
+    external: true
+    name: network_swarm_public
