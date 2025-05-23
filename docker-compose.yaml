@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   v8contract:
-    image: impacteai/v8contract:latest
+    image: mirtzkrost/v8contract:main
     environment:
       - VITE_API_URL=${VITE_API_URL}
       - VITE_API_CONTRACT_LINK=${VITE_API_CONTRACT_LINK}

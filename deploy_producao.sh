@@ -2,11 +2,11 @@
 
 # Construir a imagem
 echo "Construindo a imagem Docker..."
-docker build -t impacteai/v8contract:latest .
+docker build -t mirtzkrost/v8contract:main .
 
 # Push da imagem
 echo "Fazendo push da imagem..."
-docker push impacteai/v8contract:latest
+docker push mirtzkrost/v8contract:main
 
 # Remover stack existente
 echo "Removendo stack existente..."
@@ -24,6 +24,6 @@ docker stack deploy -c docker-compose.yaml v8contract
 echo "Verificando status do serviço..."
 docker service ls | grep v8contract
 
-docker build -t impacteai/v8contract:teste .
+docker build -t mirtzkrost/v8contract:main .
 
-docker push impacteai/v8contract:teste
+docker push mirtzkrost/v8contract:main
